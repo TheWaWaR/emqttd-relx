@@ -1,3 +1,7 @@
+
+os:
+  - linux
+  - osx
 language: erlang
 
 otp_release:
@@ -9,5 +13,6 @@ otp_release:
 
 script: 
   - make
+  - make rel
 
 sudo: false
