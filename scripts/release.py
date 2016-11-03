@@ -4,7 +4,6 @@
 import os
 # import argparse
 import commands
-from datetime import datetime
 from qiniu import Auth, put_file
 
 
@@ -32,9 +31,8 @@ def upload(local_path, remote_name):
 
 
 def main():
-    today = datetime.now().strftime('%Y%m%d')
     version = commands.getoutput('git describe --abbrev=0 --tags')
-    pkg = 'emqttd-ubuntu64-{version}-{today}.zip'.format(version=version, today=today)
+    pkg = 'emqttd-ubuntu64-{version}.zip'.format(version=version)
     local_path = '/tmp/{}'.format(pkg)
     os.system('cd _rel && zip -rq {} emqttd'.format(local_path))
     ret, info = upload(local_path, pkg)
