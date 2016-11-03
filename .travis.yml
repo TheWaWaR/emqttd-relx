@@ -1,24 +1,25 @@
 
 os:
-  # - linux
-  - osx
+  - linux
+  # - osx
 
 language: erlang
 
-
 otp_release:
    - 18.0
-   # - 18.1
-   # - 18.2
-   # - 18.2.1
-   # - 18.3
+   - 18.1
+   - 18.2
+   - 18.2.1
+   - 18.3
 
-before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update     ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then rvm get head    ; fi
+install:
+  - sudo apt-get update && sudo apt-get --assume-yes install zip 
 
 script: 
   - make
   - make rel
+
+after_success:
+  - python2 scripts/release.py
 
 sudo: false
