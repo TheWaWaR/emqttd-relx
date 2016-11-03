@@ -13,7 +13,8 @@ otp_release:
    # - 18.3
 
 install:
-  - sudo apt-get update && sudo apt-get --assume-yes install zip 
+  - sudo apt-get update && sudo apt-get --assume-yes install zip python-pip
+  - sudo pip install qiniu
 
 script: 
   - make
