@@ -1,15 +1,21 @@
 
 os:
-  - linux
+  # - linux
   - osx
+
 language: erlang
+
 
 otp_release:
    - 18.0
-   - 18.1
-   - 18.2
-   - 18.2.1
-   - 18.3
+   # - 18.1
+   # - 18.2
+   # - 18.2.1
+   # - 18.3
+
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update          ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install wget    ; fi
 
 script: 
   - make
