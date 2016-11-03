@@ -7,10 +7,10 @@ language: erlang
 
 otp_release:
    - 18.0
-   - 18.1
-   - 18.2
-   - 18.2.1
-   - 18.3
+   # - 18.1
+   # - 18.2
+   # - 18.2.1
+   # - 18.3
 
 install:
   - sudo apt-get update && sudo apt-get --assume-yes install zip 
@@ -22,4 +22,3 @@ script:
 after_success:
   - python2 scripts/release.py
 
-sudo: false
