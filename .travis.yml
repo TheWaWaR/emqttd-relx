@@ -14,8 +14,8 @@ otp_release:
    # - 18.3
 
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update          ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install wget    ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update     ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then rvm get head    ; fi
 
 script: 
   - make
