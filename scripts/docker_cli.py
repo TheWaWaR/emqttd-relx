@@ -37,7 +37,9 @@ def run(args):
            '-e QINIU_SK={secret_key} '
            '{volumes} {rm} -i {image}').format(**locals())
     print '[CMD]: {}'.format(cmd)
-    os.system(cmd)
+    return_code = os.system(cmd)
+    if return_code != 0:
+        exit(return_code)
 
 
 def parse_args():
