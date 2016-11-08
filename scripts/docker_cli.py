@@ -35,7 +35,7 @@ def run(args):
            '-e QINIU_BUCKET={bucket} '
            '-e QINIU_AK={access_key} '
            '-e QINIU_SK={secret_key} '
-           '{volumes} {rm} -i -t {image}').format(**locals())
+           '{volumes} {rm} -i {image}').format(**locals())
     print '[CMD]: {}'.format(cmd)
     os.system(cmd)
 
