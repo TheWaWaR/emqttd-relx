@@ -38,6 +38,7 @@ def run(args):
            '{volumes} {rm} -i {image}').format(**locals())
     print '[CMD]: {}'.format(cmd)
     return_code = os.system(cmd)
+    print '[Return code]: {}'.format(return_code)
     if return_code != 0:
         exit(return_code)
 
