@@ -10,8 +10,11 @@ def build(args):
     """ Build docker image """
     directory = args.directory
     dist, version = directory.split('-')
-    os.system('docker build -t erlang-{}:{} -f {}/Dockerfile .'.format(
+    return_code = os.system('docker build -t erlang-{}:{} -f {}/Dockerfile .'.format(
         dist, version, directory))
+    print '[Return code]: {}'.format(return_code)
+    if return_code != 0:
+        sys.exit(-1)
 
 
 def run(args):
@@ -40,7 +43,7 @@ def run(args):
     return_code = os.system(cmd)
     print '[Return code]: {}'.format(return_code)
     if return_code != 0:
-        sys.exit(return_code)
+        sys.exit(-1)
 
 
 def parse_args():
